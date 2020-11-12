@@ -1,0 +1,6 @@
+{
+    "mongoURI" : "mongodb+srv://chandan123:chandan123@cluster0.k6ybp.mongodb.net/dev-connector?retryWrites=true&w=majority",
+    "jwtSecret" : "mySecretToken",
+    "githubClientId":"3a075dc9a47e24073e07",
+    "githubClientSecret":"210368670c85e8dbfb8c13d96449f0cd05877956"
+}
