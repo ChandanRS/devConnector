@@ -84,7 +84,7 @@ Router.post('/',[auth,
 
 
 //@route    delete    api/posts/:id
-//@desc         Get All The Posts
+//@desc        delete a post
 //@access       Private
 Router.delete('/delete/:id', auth, async (req,res)=>{
     try {

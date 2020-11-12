@@ -7,7 +7,8 @@ import { setAlert } from './alerts'
 //Get current users profile
 export const getCurrentProfile = () => async dispatch => {
     try {
-       const res = await axios.get('http://localhost:8000/api/profile/me')
+    //    const res = await axios.get('http://localhost:8000/api/profile/me')
+       const res = await axios.get('/api/profile/me')
 console.log({res})
        dispatch({
            type: GET_PROFILE,
@@ -38,7 +39,8 @@ export const createProfile = ( formData , history, edit = false  ) => async disp
             }
         }
 
-        const res = await axios.post('http://localhost:8000/api/profile/me',formData,config) 
+        // const res = await axios.post('http://localhost:8000/api/profile/me',formData,config) 
+        const res = await axios.post('/api/profile/me',formData,config) 
 console.log('res')
         dispatch({
             type: GET_PROFILE,
@@ -82,7 +84,8 @@ export const addExperience = ( formData,history ) => async dispatch => {
         // const body = JSON.stringify({title,company, from})
 console.log('formData')
 console.log(formData)
-        const res = await axios.put('http://localhost:8000/api/profile/experience',formData,config)
+        // const res = await axios.put('http://localhost:8000/api/profile/experience',formData,config)
+        const res = await axios.put('/api/profile/experience',formData,config)
 console.log(res)
         dispatch({
             type: UPDATE_PROFILE,
@@ -114,7 +117,8 @@ export const addEducation = ( formData,history ) => async dispatch => {
         // const body = JSON.stringify({title,company, from})
 console.log('formData')
 console.log(formData)
-        const res = await axios.put('http://localhost:8000/api/profile/education',formData,config)
+        // const res = await axios.put('http://localhost:8000/api/profile/education',formData,config)
+        const res = await axios.put('/api/profile/education',formData,config)
 console.log(res)
         dispatch({
             type: UPDATE_PROFILE,
@@ -214,7 +218,8 @@ export const deleteAccount = () => async dispatch => {
 
 export const getAllProfiles = () => async dispatch => {
     try {
-       const res = await axios.get('http://localhost:8000/api/profile')
+    //    const res = await axios.get('http://localhost:8000/api/profile')
+       const res = await axios.get('/api/profile')
 console.log(res)
        dispatch({
            type: GET_PROFILES,
@@ -235,7 +240,8 @@ console.log(res)
 //Get Profile by user id
 export const getProfileById = (id) => async dispatch => {
     try {
-       const res = await axios.get(`http://localhost:8000/api/profile/user/${id}`)
+    //    const res = await axios.get(`http://localhost:8000/api/profile/user/${id}`)
+       const res = await axios.get(`/api/profile/user/${id}`)
 // console.log('res')
 // console.log(res.data)
        dispatch({
@@ -257,7 +263,8 @@ export const getProfileById = (id) => async dispatch => {
 //GET GITHUB REPOS 
 export const getRepos = (githubusername) => async dispatch => {
     try {
-       const res = await axios.get(`http://localhost:8000/api/profile/github/${githubusername}`)
+    //    const res = await axios.get(`http://localhost:8000/api/profile/github/${githubusername}`)
+       const res = await axios.get(`/api/profile/github/${githubusername}`)
 
        dispatch({
            type: GET_REPOS,

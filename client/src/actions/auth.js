@@ -15,7 +15,8 @@ import { setAlert } from "./alerts";
 //Load User
 export const loadUser = () => async (dispatch) => {
   try {
-    const res = await axios.get("http://localhost:8000/api/auth");
+    // const res = await axios.get("http://localhost:8000/api/auth");
+    const res = await axios.get("/api/auth");
     
     if (res) {
       dispatch({
