@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner'
 import Moment from 'react-moment'
 import {addComment,deleteComment} from '../../actions/post'
+import { getProfileById } from '../../actions/profile'
 
 const Post = ({  post:{post , loading},auth,addComment,deleteComment }) => {
 
@@ -22,7 +23,8 @@ const Post = ({  post:{post , loading},auth,addComment,deleteComment }) => {
         addComment(commentData,id)
         e.target.reset()
     }
-
+console.log('postttttt')
+console.log({post})
     const deleteHandler = ( e,postid,commentid )=> {
         console.log('del handler calde')
         
@@ -36,7 +38,7 @@ const Post = ({  post:{post , loading},auth,addComment,deleteComment }) => {
                 <Link to="/posts" className="btn">Back To Posts</Link>
                 <div className="post bg-white p-1 my-1">
                 <div>
-               {post && <Link to="/profile">
+               {post && <Link to={`/profile/${post.user}`}> 
                     <img
                     className="round-img"
                     src={post.avatar}
@@ -77,7 +79,7 @@ const Post = ({  post:{post , loading},auth,addComment,deleteComment }) => {
                 
                 <div className="post bg-white p-1 my-1">
                     <div>
-                        <Link to="/profile">
+                        <Link to={`/profile/${p.user}`}>
                         <img
                             className="round-img"
                             src={p.avatar}

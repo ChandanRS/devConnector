@@ -14,9 +14,6 @@ const Posts = ({getAllPosts,createPost,deletePost,likePost,unlikePost,getPostByI
         description:''
     })
 
-    // console.log('posts')
-    // console.log(posts.length)
-
     useEffect(()=>{
         getAllPosts()
     },[getAllPosts])
@@ -28,8 +25,6 @@ const Posts = ({getAllPosts,createPost,deletePost,likePost,unlikePost,getPostByI
     )
 
     const deleteHandler = ( e,id )=> {
-        console.log('del handler calde')
-        console.log(id)
         deletePost(id)
     }
 
@@ -42,8 +37,7 @@ const Posts = ({getAllPosts,createPost,deletePost,likePost,unlikePost,getPostByI
     }
 
     const openPostHandler = (e, id) => {
-      console.log('id')
-      console.log(id)
+     
       getPostById(id)
     }
     
@@ -100,17 +94,15 @@ const Posts = ({getAllPosts,createPost,deletePost,likePost,unlikePost,getPostByI
               likes,
               user,
               name,
-              title,
               date,
             } = post;
-            // console.log(avatar, comments, description, likes, name, title, date)
             return (
               <Fragment>
                 <div className="posts">
                   <div className="post bg-white p-1 my-1">
                     {avatar && (
                       <div>
-                        <Link to="/profile">
+                        <Link to={`/profile/${user}`}>
                           <img className="round-img" src={avatar} alt="" />
                           {name && <h4>{name}</h4>}
                         </Link>

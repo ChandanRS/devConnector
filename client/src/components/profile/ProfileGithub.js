@@ -20,11 +20,11 @@ const ProfileGithub = ({repos,getRepos,username}) => {
         return(
           
         <Fragment>
-         <Fragment>
+         {/* <Fragment>
         <h2 className="text-primary my-1">
         <i className="fab fa-github"></i> Github Repos
       </h2>
-      </Fragment>
+      </Fragment> */}
         <div className="profile-github">
           
              <div className="repo bg-white p-1 my-1">

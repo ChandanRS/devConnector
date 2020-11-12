@@ -24,21 +24,42 @@ const Profile = ({ profile:{profile,loading,repos},getProfileById,match ,auth}) 
     // const githubusername = {...profile.githubusername}
 // console.log(githubusername)
     return (
-        <Fragment>
-        {
-           profile === null || loading === true ? <Spinner /> : (
-                <Fragment>
-                    <div className="btn btn-secondary"><Link to="/profiles">Back to Profiles</Link></div>
-                  { auth.isAuthenticated && auth.loading === false && profile && auth.user._id == profile.user._id ? <div className="btn btn-secondary"><Link to="/edit-profile">Edit Profile</Link></div> : null}  
-                    <ProfileTop profile = {profile} />
-                    <ProfileAbout profile ={profile} />
-                    <ProfileExperience profile ={profile} />
-                    <ProfileEducation profile ={profile} />
-                 {profile && profile.githubusername && <ProfileGithub profile ={repos} username = {profile.githubusername} />}
-                </Fragment>
+      <Fragment>
+        {profile === null || loading === true ? (
+          <Spinner />
+        ) : (
+          <Fragment>
+            <div className="btn btn-secondary">
+              <Link to="/profiles">Back to Profiles</Link>
+            </div>
+            {auth.isAuthenticated &&
+            auth.loading === false &&
+            profile &&
+            auth.user._id == profile.user._id ? (
+              <div className="btn btn-secondary">
+                <Link to="/edit-profile">Edit Profile</Link>
+              </div>
+            ) : null}
+            <ProfileTop profile={profile} />
+            <ProfileAbout profile={profile} />
+            <ProfileExperience profile={profile} />
+            <ProfileEducation profile={profile} />
+            {profile && profile.githubusername && (
+              <Fragment>
+                <h2 className="text-primary my-1">
+                  <i className="fab fa-github"></i> Github Repos{" "}
+                </h2>
+
+                <ProfileGithub
+                  profile={repos}
+                  username={profile.githubusername}
+                />
+              </Fragment>
+            )}
+          </Fragment>
         )}
-        </Fragment>
-    )
+      </Fragment>
+    );
 
 
 }
