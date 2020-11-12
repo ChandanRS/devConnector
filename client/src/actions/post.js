@@ -177,7 +177,7 @@ export const deleteComment = (postid,commentid) => async dispatch => {
     try {
         console.log('comment delete action called')
     //  const res =  await axios.delete(`http://localhost:3000/api/posts/comment/${postid}/${commentid}`)
-     const res =  await axios.delete(`/api/posts/comment/${postid}/${commentid}`)
+     const res =  await axios.delete(`http://localhost:8000/api/posts/comment/${postid}/${commentid}`)
         console.log(res)
         dispatch({
             type:DELETE_COMMENT,
