@@ -55,7 +55,6 @@ export const createPost = (postData) => async dispatch => {
 export const deletePost = (id) => async dispatch => {
     try {
         console.log('post delete action called')
-    //  const res =  await axios.delete(`http://localhost:3000/api/posts/delete/${id}`)
      const res =  await axios.delete(`/api/posts/delete/${id}`)
         console.log(res)
         dispatch({
@@ -77,7 +76,7 @@ export const deletePost = (id) => async dispatch => {
 export const likePost = (id) => async dispatch => {
     try {
         console.log('likePost action called')
-     const res =  await axios.put(`http://localhost:3000/api/posts/like/${id}`)
+     const res =  await axios.put(`/api/posts/like/${id}`)
         console.log(res)
         dispatch({
             type:LIKE_POST,
@@ -101,7 +100,7 @@ export const likePost = (id) => async dispatch => {
 export const unlikePost = (Id,userId) => async dispatch => {
     try {
         console.log('Unlike action called')
-     const res =  await axios.put(`http://localhost:3000/api/posts/unlike/${Id}`)
+     const res =  await axios.put(`/api/posts/unlike/${Id}`)
         console.log('res')
         console.log(res)
         dispatch({
@@ -126,7 +125,6 @@ export const unlikePost = (Id,userId) => async dispatch => {
 
 export const getPostById = ( id ) => async dispatch => {
     try {
-        // const res = await axios.get(`http://localhost:8000/api/posts/${id}`)
         const res = await axios.get(`/api/posts/${id}`)
         console.log(res)
 
@@ -154,7 +152,6 @@ export const addComment = (commentData,id) => async dispatch => {
             }
            
        
-        // const res = await axios.post(`http://localhost:8000/api/posts/comment/${id}`,commentData,config )
         const res = await axios.post(`api/posts/comment/${id}`,commentData,config )
         console.log('ressss')
         console.log(res.data)
@@ -176,8 +173,7 @@ export const addComment = (commentData,id) => async dispatch => {
 export const deleteComment = (postid,commentid) => async dispatch => {
     try {
         console.log('comment delete action called')
-    //  const res =  await axios.delete(`http://localhost:3000/api/posts/comment/${postid}/${commentid}`)
-     const res =  await axios.delete(`http://localhost:8000/api/posts/comment/${postid}/${commentid}`)
+     const res =  await axios.delete(`/api/posts/comment/${postid}/${commentid}`)
         console.log(res)
         dispatch({
             type:DELETE_COMMENT,

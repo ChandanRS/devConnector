@@ -7,7 +7,6 @@ import { setAlert } from './alerts'
 //Get current users profile
 export const getCurrentProfile = () => async dispatch => {
     try {
-    //    const res = await axios.get('http://localhost:8000/api/profile/me')
        const res = await axios.get('/api/profile/me')
 console.log({res})
        dispatch({
@@ -39,7 +38,6 @@ export const createProfile = ( formData , history, edit = false  ) => async disp
             }
         }
 
-        // const res = await axios.post('http://localhost:8000/api/profile/me',formData,config) 
         const res = await axios.post('/api/profile/me',formData,config) 
 console.log('res')
         dispatch({
@@ -84,7 +82,6 @@ export const addExperience = ( formData,history ) => async dispatch => {
         // const body = JSON.stringify({title,company, from})
 console.log('formData')
 console.log(formData)
-        // const res = await axios.put('http://localhost:8000/api/profile/experience',formData,config)
         const res = await axios.put('/api/profile/experience',formData,config)
 console.log(res)
         dispatch({
@@ -117,7 +114,6 @@ export const addEducation = ( formData,history ) => async dispatch => {
         // const body = JSON.stringify({title,company, from})
 console.log('formData')
 console.log(formData)
-        // const res = await axios.put('http://localhost:8000/api/profile/education',formData,config)
         const res = await axios.put('/api/profile/education',formData,config)
 console.log(res)
         dispatch({
@@ -141,7 +137,7 @@ console.log(res)
 
 export const deleteExperience = id => async dispatch => {
     try {
-        const res = await axios.delete(`http://localhost:3000/api/profile/experience/${id}`)
+        const res = await axios.delete(`/api/profile/experience/${id}`)
 console.log('res')
 console.log(res.data)
         dispatch({
@@ -167,7 +163,7 @@ console.log(res.data)
 
 export const deleteEducation = id => async dispatch => {
     try {
-        const res = await axios.delete(`http://localhost:3000/api/profile/education/${id}`)
+        const res = await axios.delete(`/api/profile/education/${id}`)
 
         dispatch({
             type:UPDATE_PROFILE,
@@ -193,7 +189,7 @@ export const deleteEducation = id => async dispatch => {
 export const deleteAccount = () => async dispatch => {
     if(window.confirm('Are you sure? This action can not be undone'))
     try {
-        const res = await axios.delete(`http://localhost:3000/api/profile`)
+        const res = await axios.delete(`/api/profile`)
 
         dispatch({
             type:CLEAR_PROFILE
@@ -218,7 +214,6 @@ export const deleteAccount = () => async dispatch => {
 
 export const getAllProfiles = () => async dispatch => {
     try {
-    //    const res = await axios.get('http://localhost:8000/api/profile')
        const res = await axios.get('/api/profile')
 console.log(res)
        dispatch({
@@ -240,7 +235,6 @@ console.log(res)
 //Get Profile by user id
 export const getProfileById = (id) => async dispatch => {
     try {
-    //    const res = await axios.get(`http://localhost:8000/api/profile/user/${id}`)
        const res = await axios.get(`/api/profile/user/${id}`)
 // console.log('res')
 // console.log(res.data)
@@ -263,7 +257,6 @@ export const getProfileById = (id) => async dispatch => {
 //GET GITHUB REPOS 
 export const getRepos = (githubusername) => async dispatch => {
     try {
-    //    const res = await axios.get(`http://localhost:8000/api/profile/github/${githubusername}`)
        const res = await axios.get(`/api/profile/github/${githubusername}`)
 
        dispatch({
