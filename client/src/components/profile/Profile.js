@@ -44,12 +44,11 @@ const Profile = ({ profile:{profile,loading,repos},getProfileById,match ,auth}) 
             <ProfileAbout profile={profile} />
             <ProfileExperience profile={profile} />
             <ProfileEducation profile={profile} />
-            {profile && profile.githubusername && (
-              <Fragment>
-                <h2 className="text-primary my-1">
+            <h2 className="text-primary my-1">
                   <i className="fab fa-github"></i> Github Repos{" "}
                 </h2>
-
+            {profile && profile.githubusername && (
+              <Fragment>
                 <ProfileGithub
                   profile={repos}
                   username={profile.githubusername}
