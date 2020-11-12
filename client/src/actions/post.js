@@ -55,7 +55,8 @@ export const createPost = (postData) => async dispatch => {
 export const deletePost = (id) => async dispatch => {
     try {
         console.log('post delete action called')
-     const res =  await axios.delete(`http://localhost:3000/api/posts/delete/${id}`)
+    //  const res =  await axios.delete(`http://localhost:3000/api/posts/delete/${id}`)
+     const res =  await axios.delete(`/api/posts/delete/${id}`)
         console.log(res)
         dispatch({
             type:DELETE_POST,
