@@ -7,13 +7,14 @@ const PostsRouter = require('./Routes/Posts')
 
 
 const path = require('path')
-
+const cors = require('cors')
 const app = express()
 
 //CONNECT DB
 connectDB()
 
 //MIDDLEWARES
+app.use(cors())
 app.use(express.json({extended: false}))
 
 
